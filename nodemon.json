@@ -1,0 +1,10 @@
+{
+  "verbose": true,
+  "ext": "js jsx json css",
+  "ignore": [
+    "node_modules",
+    "public",
+    "logs",
+    ".git"
+  ]
+}
