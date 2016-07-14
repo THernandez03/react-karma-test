@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import './styles.css';
 
+const defaultText = 'Boton';
+
 /**
  * Boton Component
  */
@@ -24,14 +26,14 @@ export default class Boton extends Component {
     } = this.props;
 
     let contentBoton;
-    if(text || icon){
+    if(src){
+      contentBoton = <img src={src}/>;
+    }else if(text !== defaultText || icon){
       contentBoton = [];
       contentBoton.push(<i key='icon' className={icon}/>);
       contentBoton.push(text);
-    }else if(src){
-      contentBoton = <img src={src}/>;
     }else{
-      contentBoton = 'Boton';
+      contentBoton = text;
     }
 
     if(href){
@@ -75,7 +77,7 @@ Boton.propTypes = {
 
 Boton.defaultProps = {
   className: 'button',
-  text: '',
+  text: defaultText,
   style: {},
   onHover(){},
   onClick(){},
