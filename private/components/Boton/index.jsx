@@ -21,7 +21,7 @@ class Boton extends Component {
       src,
       icon,
     } = this.props;
-    
+
     let contentBoton;
     if(href){
       if(text || icon){
