@@ -86,9 +86,9 @@ Boton.propTypes = {
 };
 
 Boton.defaultProps = {
-  style = function (){},
-  onHover = function (){},
-  onClick = function (){}
+  style: function (){},
+  onHover: function (){},
+  onClick: function (){}
 };
 
 export default Boton;
