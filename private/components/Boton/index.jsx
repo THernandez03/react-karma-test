@@ -65,7 +65,7 @@ export default class Boton extends Component {
    */
   render() {
     return (
-      <div className={'buttonWrapper'}>
+      <div className='buttonWrapper'>
         {this.botonMaker()}
       </div>
     );
