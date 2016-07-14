@@ -11,8 +11,8 @@ class Boton extends Component {
    * @return {[type]} [description]
    */
   render() {
-    const className = this.props.class ? this.props.class : 'button';
     const {
+      className,
       style,
       onHover,
       onClick,
@@ -86,9 +86,10 @@ Boton.propTypes = {
 };
 
 Boton.defaultProps = {
+  className: 'button',
   style: function (){},
   onHover: function (){},
-  onClick: function (){}
+  onClick: function (){},
 };
 
 export default Boton;
