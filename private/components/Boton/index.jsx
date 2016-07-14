@@ -1,16 +1,17 @@
 import React, { Component, PropTypes } from 'react';
-import styles from './styles.css';
+import './styles.css';
 
 /**
  * Boton Component
  */
-class Boton extends Component {
+export default class Boton extends Component {
+
   /**
-   * Define what HTML will be  rendered to DOM
-   * @method render
-   * @return {[type]} [description]
+   * Boton Maker
+   * @method botonMaker
+   * @return {jsx} [Componente jsx]
    */
-  render() {
+  botonMaker() {
     const {
       className,
       style,
@@ -23,52 +24,49 @@ class Boton extends Component {
     } = this.props;
 
     let contentBoton;
-    if(href){
-      if(text || icon){
-        contentBoton = (
-          <a className={className} onMouseOver={onHover} href={href} onClick={onClick} style={style()}>
-            <i className={icon}></i>
-            {text || ''}
-          </a>
-        )
-      }else if(src){
-        contentBoton = (
-          <a className={className} onMouseOver={onHover} href={href} onClick={onClick} style={style()}>
-            <img src={src} />
-          </a>
-        )
-      }else{
-        contentBoton = (
-          <a className={className} onMouseOver={onHover} href={href} onClick={onClick} style={style()}>
-            Boton
-          </a>
-        )
-      }
+
+    if(text || icon){
+      contentBoton = [];
+      contentBoton.push(<i key='icon' className={icon}/>);
+      contentBoton.push(text);
+    }else if(src){
+      contentBoton = <img src={src}/>;
     }else{
-      if(text || icon){
-        contentBoton = (
-          <button className={className} onMouseOver={onHover} onClick={onClick} style={style()}>
-            <i className={icon}></i>
-            {text || ''}
-          </button>
-        )
-      }else if(src){
-        contentBoton = (
-          <button className={className} onMouseOver={onHover} onClick={onClick} style={style()}>
-            <img src={src} />
-          </button>
-        )
-      }else{
-        contentBoton = (
-          <button className={className} onMouseOver={onHover} onClick={onClick} style={style()}>
-            Boton
-          </button>
-        )
-      }
+      contentBoton = 'Boton';
+    }
+
+    if(href){
+      return (
+        <a className={className}
+          onMouseOver={onHover}
+          href={href}
+          onClick={onClick}
+          style={style()}
+        >
+          {contentBoton}
+        </a>
+      );
     }
     return (
-      <div className='buttonWrapper'>
+      <button className={className}
+        onMouseOver={onHover}
+        onClick={onClick}
+        style={style()}
+      >
         {contentBoton}
+      </button>
+    );
+  }
+
+  /**
+   * Define what HTML will be  rendered to DOM
+   * @method render
+   * @return {[type]} [description]
+   */
+  render() {
+    return (
+      <div className={'buttonWrapper'}>
+        {this.botonMaker()}
       </div>
     );
   }
@@ -87,9 +85,8 @@ Boton.propTypes = {
 
 Boton.defaultProps = {
   className: 'button',
-  style: function (){},
-  onHover: function (){},
-  onClick: function (){},
+  text: '',
+  style(){},
+  onHover(){},
+  onClick(){},
 };
-
-export default Boton;
