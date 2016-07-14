@@ -27,7 +27,7 @@ class Boton extends Component {
       if(text || icon){
         contentBoton = (
           <a className={className} onMouseOver={onHover} href={href} onClick={onClick} style={style()}>
-            <i key='icono' className={icon}></i>
+            <i className={icon}></i>
             {text || ''}
           </a>
         )
@@ -48,7 +48,7 @@ class Boton extends Component {
       if(text || icon){
         contentBoton = (
           <button className={className} onMouseOver={onHover} onClick={onClick} style={style()}>
-            <i key='icono' className={icon}></i>
+            <i className={icon}></i>
             {text || ''}
           </button>
         )
