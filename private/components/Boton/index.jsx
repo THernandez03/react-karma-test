@@ -7,6 +7,7 @@ import './styles.css';
  */
 const Boton = ({
   className,
+  hrefNewTab,
   style,
   onHover,
   onClick,
@@ -15,6 +16,15 @@ const Boton = ({
   src,
   icon,
 }) => {
+  const handleHref = (event) => {
+    if(hrefNewTab){
+      const win = window.open(href, '_blank');
+      win.focus();
+    }else{
+      window.location = href;
+    }
+    onClick(event);
+  }
   let contentBoton = text;
   if(src){
     contentBoton = <img src={src}/>;
@@ -31,7 +41,7 @@ const Boton = ({
       <button
         className={className}
         onMouseOver={onHover}
-        onClick={onClick}
+        onClick={(href) ? handleHref : onClick}
         style={style}
         href={href}
       >
@@ -43,6 +53,7 @@ const Boton = ({
 
 Boton.propTypes = {
   className: PropTypes.string,
+  hrefNewTab: PropTypes.bool,
   style: PropTypes.object,
   onHover: PropTypes.func,
   onClick: PropTypes.func,
@@ -54,6 +65,7 @@ Boton.propTypes = {
 
 Boton.defaultProps = {
   className: 'button',
+  hrefNewTab: false,
   style: {},
   onHover(){},
   onClick(){},
