@@ -41,7 +41,7 @@ export default class Boton extends Component {
           onMouseOver={onHover}
           href={href}
           onClick={onClick}
-          style={style()}
+          style={style}
         >
           {contentBoton}
         </a>
@@ -51,7 +51,7 @@ export default class Boton extends Component {
       <button className={className}
         onMouseOver={onHover}
         onClick={onClick}
-        style={style()}
+        style={style}
       >
         {contentBoton}
       </button>
@@ -74,7 +74,7 @@ export default class Boton extends Component {
 
 Boton.propTypes = {
   className: PropTypes.string,
-  style: PropTypes.func,
+  style: PropTypes.object,
   onHover: PropTypes.func,
   onClick: PropTypes.func,
   text: PropTypes.string,
@@ -86,7 +86,7 @@ Boton.propTypes = {
 Boton.defaultProps = {
   className: 'button',
   text: '',
-  style(){},
+  style: {},
   onHover(){},
   onClick(){},
 };
