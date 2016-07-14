@@ -13,9 +13,9 @@ class Boton extends Component {
   render() {
     const className = this.props.class ? this.props.class : 'button';
     const {
-      style = function (){},
-      onHover = function (){},
-      onClick = function (){},
+      style,
+      onHover,
+      onClick,
       text,
       href,
       src,
@@ -83,6 +83,12 @@ Boton.propTypes = {
   href: PropTypes.string,
   src: PropTypes.string,
   icon: PropTypes.string,
+};
+
+Boton.defaultProps = {
+  style = function (){},
+  onHover = function (){},
+  onClick = function (){}
 };
 
 export default Boton;
