@@ -7,11 +7,11 @@ import './styles.css';
 export default class Boton extends Component {
 
   /**
-   * Boton Maker
-   * @method botonMaker
-   * @return {jsx} [Componente jsx]
+   * Define what HTML will be  rendered to DOM
+   * @method render
+   * @return {[type]} [description]
    */
-  botonMaker() {
+  render() {
     const {
       className,
       style,
@@ -24,7 +24,6 @@ export default class Boton extends Component {
     } = this.props;
 
     let contentBoton;
-
     if(text || icon){
       contentBoton = [];
       contentBoton.push(<i key='icon' className={icon}/>);
@@ -37,36 +36,27 @@ export default class Boton extends Component {
 
     if(href){
       return (
-        <a className={className}
+        <div className='buttonWrapper'>
+          <a className={className}
+            onMouseOver={onHover}
+            href={href}
+            onClick={onClick}
+            style={style}
+          >
+            {contentBoton}
+          </a>
+        </div>
+      );
+    }
+    return (
+      <div className='buttonWrapper'>
+        <button className={className}
           onMouseOver={onHover}
-          href={href}
           onClick={onClick}
           style={style}
         >
           {contentBoton}
-        </a>
-      );
-    }
-    return (
-      <button className={className}
-        onMouseOver={onHover}
-        onClick={onClick}
-        style={style}
-      >
-        {contentBoton}
-      </button>
-    );
-  }
-
-  /**
-   * Define what HTML will be  rendered to DOM
-   * @method render
-   * @return {[type]} [description]
-   */
-  render() {
-    return (
-      <div className='buttonWrapper'>
-        {this.botonMaker()}
+        </button>
       </div>
     );
   }
