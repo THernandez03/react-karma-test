@@ -3,7 +3,7 @@
   margin: 1em 1em;
 }
 
-.button {
+.buttonWrapper button {
   display: inline-block;
   box-sizing: border-box;
   padding: 0.25em 2em;
@@ -22,7 +22,7 @@
   background: rgba(241, 104, 118, 1);
 }
 
-.button:hover {
+.buttonWrapper button:hover {
   background: rgba(241, 104, 118, 0.5);
   color: #FFF;
 }
