@@ -53,7 +53,7 @@
     "valid-typeof": 2,
     "accessor-pairs": 2,
     "block-scoped-var": 2,
-    "complexity": [2, 5],
+    "complexity": [2, 20],
     "consistent-return": 2,
     "curly": 2,
     "default-case": 2,
