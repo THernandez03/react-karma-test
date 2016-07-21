@@ -6,7 +6,6 @@ import './styles.css';
  * @returns {object} Boton
  */
 const Boton = ({
-  className,
   hrefNewTab,
   style,
   onHover,
@@ -37,12 +36,12 @@ const Boton = ({
     );
   }
   return (
-    <div className='buttonWrapper'>
+    <div className='contenedorBoton' style={style.contenedorBoton}>
       <button
-        className={className}
+        className='estiloBoton'
         onMouseOver={onHover}
         onClick={(href) ? handleHref : onClick}
-        style={style}
+        style={style.estiloBoton}
         href={href}
       >
         {contentBoton}
@@ -52,7 +51,6 @@ const Boton = ({
 }
 
 Boton.propTypes = {
-  className: PropTypes.string,
   hrefNewTab: PropTypes.bool,
   style: PropTypes.object,
   onHover: PropTypes.func,
@@ -64,7 +62,6 @@ Boton.propTypes = {
 };
 
 Boton.defaultProps = {
-  className: 'button',
   hrefNewTab: false,
   style: {},
   onHover(){},
