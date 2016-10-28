@@ -25,7 +25,7 @@ const defaultConfig = {
 const configs = {
   local: {
     host: 'localhost',
-    port: 4000,
+    port: 4001,
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
